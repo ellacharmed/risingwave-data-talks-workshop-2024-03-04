@@ -12,17 +12,24 @@ source commands.sh
 clean-cluster
 # Start a new cluster
 start-cluster
+# wait for cluster to start
+sleep 5
 # Seed historical data instead of real-time data
 seed-kafka
 # Recreate trip data table
 psql -f risingwave-sql/table/trip_data.sql
+# Wait for a while for the trip_data table to be populated.
+sleep 5
+# Check that you have 100K records in the trip_data table
+# You may rerun it if the count is not 100K
+psql -c "SELECT COUNT(*) FROM trip_data"
 ```
 
 ## Question 0
 
 _This question is just a warm-up to introduce dynamic filter, please attempt it before viewing its solution._
 
-What are the pick up taxi zones at the latest dropoff times?
+What are the dropoff taxi zones at the latest dropoff times?
 
 For this part, we will use the [dynamic filter pattern](https://docs.risingwave.com/docs/current/sql-pattern-dynamic-filters/).
 
@@ -68,7 +75,7 @@ Options:
 
 ## Question 2
 
-Recreate the MV(s) in question 1, to also find the number of trips for the pair of taxi zones with the highest average trip time.
+Recreate the MV(s) in question 1, to also find the **number of trips** for the pair of taxi zones with the highest average trip time.
 
 Options:
 1. 5
