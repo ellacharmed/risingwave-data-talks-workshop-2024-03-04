@@ -26,6 +26,7 @@ class Env:
 def check_kafka_topic_created(env, topic):
     admin_client = env.admin_client
     cluster_metadata = admin_client.list_topics()
+    logging.info(f' .. In check_kafka_topic_created() ..')
     return topic in cluster_metadata.topics.keys()
 
 
@@ -43,6 +44,8 @@ def create_kafka_topic(env, topic_name):
     else:
         logging.error(f'Topic {topic_name} not created')
         raise Exception(f'Topic {topic_name} not created')
+    
+    logging.info(f' .. In create_kafka_topic, ended ..')
 
 
 def send_records_to_kafka(env, records, real_time=False):

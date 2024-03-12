@@ -55,8 +55,7 @@ In this hands-on workshop, we’ll learn how to process real-time streaming data
 
 ![RisingWave](https://raw.githubusercontent.com/risingwavelabs/risingwave-docs/main/docs/images/new_archi_grey.png)
 
-We will use the NYC Taxi dataset, which contains information
-about taxi trips in New York City.
+We will use the NYC Taxi dataset, which contains information about taxi trips in New York City.
 
 We’ll cover the following topics in this Workshop:
 
@@ -73,7 +72,8 @@ https://tutorials.risingwave.com/docs/intro
 1. Docker and Docker Compose
 2. Python 3.7 or later
 3. `pip` and `virtualenv` for Python
-4. `psql` (I use PostgreSQL-14.9)
+4. `psql` (I use PostgreSQL-14.9) [source](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-database)
+  - `sudo apt-get -y install postgresql-14`
 5. Clone this repository:
    ```sh
    git clone git@github.com:risingwavelabs/risingwave-data-talks-workshop-2024-03-04.git
